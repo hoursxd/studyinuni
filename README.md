@@ -32,10 +32,9 @@ We worked together intensively for 24+ hours!
 # Roles
 Da Xie: Tech Lead, Full-stack Engineer, Database manager, Graphics designer, Pitch designer \n
 
-Yue Pan: Back-end engineer, Database setup, Pitch designer
-
 Yuanyuan Sheng: Project manager, Back-end engineer, Cloud server manager, Pitch speaker
 
+Yue Pan: Back-end engineer, Database setup, Pitch designer
 
 # What's next for StudyInUni
 Develop a mobile app.
