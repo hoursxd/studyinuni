@@ -13,3 +13,14 @@ class course(models.Model):
     starttime=models.CharField(max_length=20)
     endtime=models.CharField(max_length=20)
 
+class room(models.Model):
+    id=models.IntegerField(primary_key=True)
+    cseid=models.IntegerField()
+    site1=models.IntegerField()
+    site2=models.IntegerField()
+    site3=models.IntegerField()
+    site4=models.IntegerField()
+    site5=models.IntegerField()
+    site6=models.IntegerField()
+    site7=models.IntegerField()
+    site8=models.IntegerField()

@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 import time
 from django.utils.safestring import mark_safe
 
+
 def index(request):
     # return HttpResponse("Hello, world.123   ")
     aaa = 555
@@ -34,36 +35,76 @@ def login(request):
 def register(request):
     return render(request, 'sydneyuni/register.html')
 
+
 def select(request):
-    timetb=time.localtime()
-    wk = time.strftime("%a",timetb)
-    hour = int(time.strftime("%H",timetb))
-    min = time.strftime("%M",timetb)
-    if int(min) >=30:
-        hour=hour+1
+    timetb = time.localtime()
+    wk = time.strftime("%a", timetb)
+    hour = int(time.strftime("%H", timetb))
+    min = time.strftime("%M", timetb)
+    if int(min) >= 30:
+        hour = hour+1
     wk_str = wk+str(hour)+":00"
+    print(wk_str)
 
     courses = models.course.objects.filter(starttime=wk_str)
-    
-    list1=[]
+
+    list1 = []
 
     for course in courses:
         start = course.starttime
         end = course.endtime
         timeline = start[3:]+" - "+end[3:]
         cid = course.id
-        strdiv = mark_safe('<div class="mb2"><a class="act-but submit" href="'+'/room?id='+str(cid)+'" style="color: #FFFFFF">'+course.cse+'</a></div>')
-        ct = {"first":timeline, "second":strdiv}
-        
+        strdiv = mark_safe('<div class="mb2"><a class="act-but submit" href="' +
+                           '/room?id='+str(cid)+'" style="color: #FFFFFF">'+course.cse+'</a></div>')
+        ct = {"first": timeline, "second": strdiv}
+
         list1.append(ct)
-        
+
     context = {"state": list1}
 
     return render(request, 'sydneyuni/select.html', context)
 
+
 def room(request):
     if request.method == 'GET':
-        a = request.GET['id']
-        return render(request, 'sydneyuni/room.html')
-    else:
+        cid = request.GET['id']
+        cs = models.course.objects.get(id=cid)
+        cn = cs.cse
+        room = models.room.objects.get(cseid=cid)
+
+        sess = str(request.session['username'])
+        user = models.user.objects.get(username=sess)
+        uid = user.id
+
+        if room.site1 is None:
+            room.site1 = user.id
+        elif room.site2 is None:
+            room.site2 = user.id
+        elif room.site3 is None:
+            room.site3 = user.id
+        elif room.site4 is None:
+            room.site4 = user.id
+        elif room.site5 is None:
+            room.site5 = user.id
+        elif room.site6 is None:
+            room.site6 = user.id
+        elif room.site7 is None:
+            room.site7 = user.id
+        elif room.site8 is None:
+            room.site8 = user.id
+                
+
+        cap = sess[0].capitalize()
+        print(room)
+        print(room.site2)
+
+        list1=[430,540,660,770,890,1000,1120,1230]
+        list2=[300,430,540,650,]
+
+        divsit = mark_safe('<div id="person" class="circle-text" style="background-color:#f309e7; top: 430px; left: 540px;">'+cap+'</div>')
+        context={"divr": divsit, "cname": cn}
         
+        return render(request, 'sydneyuni/room.html', context)
+    else:
+        return render(request, 'sydneyuni/room.html')
