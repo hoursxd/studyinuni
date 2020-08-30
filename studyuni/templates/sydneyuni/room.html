@@ -10,6 +10,27 @@
     <title>login</title>
     <link rel="stylesheet" type="text/css" href="../static/normalize.css">
     <link rel="stylesheet" type="text/css" href="../static/demo.css">
+
+    <script>
+		function getDateDemo(){
+            var myDate = new Date();
+            var hours = myDate.getHours();
+            var minutes = myDate.getMinutes();
+            var seconds = myDate.getSeconds();
+            if (minutes<10){
+                minutes = "0"+minutes
+            }
+            if (seconds<10){
+                seconds = "0"+seconds
+            }
+            var dateTime = hours+":"+minutes;
+            var divNode = document.getElementById("up");
+			divNode.innerHTML = dateTime;
+        }
+        window.setInterval("getDateDemo()",1000);
+    </script>
+
+
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="../static/component.css">
     <!--[if IE]>
@@ -25,7 +46,7 @@
 
                 <div id="course"> {{cname}} </div>
 
-                <div id="up"> 20:11 </div>
+                <div id="up">  </div>
                 
                 <div id="person" class="circle-text" style="background-color:#6041b5; top: 300px; left: 430px;">H</div>
                 <div id="person" class="circle-text" style="background-color:#4eb689; top: 300px; left: 540px;">B</div>

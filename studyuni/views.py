@@ -11,7 +11,7 @@ from django.utils.safestring import mark_safe
 def index(request):
     # return HttpResponse("Hello, world.123   ")
     aaa = 555
-    context = {'aaa': aaa}
+    context = {'aaa': ''}
     return render(request, 'sydneyuni/index.html', context)
 
 
