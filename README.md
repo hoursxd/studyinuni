@@ -17,7 +17,7 @@ We scraped units of study and its associated time from USYD UOS site for name an
 
 Bootstrap is used in the frontend for easy and faster development of User interface elements. GreenSock framework is leveraged to animate the web, make the interface vivid, and allow for a smoother user experience.
 
-Challenges we ran into
+Challenges for the developement
 Choosing an idea that could be implemented within 24 hours from many brilliant ones
 User interface and graphics design
 Implementing the random seated algorithm
@@ -32,10 +32,9 @@ We worked together intensively for 24+ hours!
 # Roles
 Da Xie: Tech Lead, Full-stack Engineer, Database manager, Graphics designer, Pitch designer \n
 
-Yue Pan: Back-end engineer, Database setup, Pitch designer
-
 Yuanyuan Sheng: Project manager, Back-end engineer, Cloud server manager, Pitch speaker
 
+Yue Pan: Back-end engineer, Database setup, Pitch designer
 
 # What's next for StudyInUni
 Develop a mobile app.
